@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    /* 🌐 Compatibility */
+    "target": "ES2022",
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "incremental": true,
+
+    /* 🧠 Type safety */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* 🔗 Path aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "~/*": ["src/*"],
+      "$amplify/*": [".amplify/generated/*"] // ✅ додано для Next.js
+    },
+
+    /* 🧩 Next.js plugin */
+    "plugins": [{ "name": "next" }]
+  },
+  "include": [
+    "next-env.d.ts",
+    "src",
+    "amplify",
+    ".amplify",
+    "fastfood-mobile-eats",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.cjs",
+    "**/*.js"
+  ],
+  "exclude": ["node_modules"],
+  "references": [{ "path": "./amplify/tsconfig.json" }]
+}
