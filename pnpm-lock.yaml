@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@aws-amplify/adapter-nextjs':
+        specifier: ^1.6.4
+        version: 1.6.4(aws-amplify@6.15.1)(next@15.3.4(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
       '@radix-ui/react-accordion':
         specifier: ^1.2.0
         version: 1.2.11(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -233,6 +236,12 @@ packages:
     hasBin: true
     peerDependencies:
       graphql: '*'
+
+  '@aws-amplify/adapter-nextjs@1.6.4':
+    resolution: {integrity: sha512-17Uw3rMNipcgF9Rc4OxHvkPGmYtg0S/X12Wxcj/WOAa7F2yReN6cMLMvFScAkRu4X4lWK08WlwueTPB8FM0LFQ==}
+    peerDependencies:
+      aws-amplify: ^6.13.1
+      next: '>=13.5.0 <16.0.0'
 
   '@aws-amplify/analytics@7.0.82':
     resolution: {integrity: sha512-zqZz5ro2hwFk+3fDoECJ5jrnAUH1wHkl5+wPgRK3x9OBTEgtjVv9ONb/+gMsaAxYMbbE8MLFemTH8DMdntkmyg==}
@@ -3902,6 +3911,10 @@ packages:
       - yaml
       - mime-types
 
+  aws-jwt-verify@4.0.1:
+    resolution: {integrity: sha512-kzvi71eD3w/mCpYRUY7cz6DX4bfYihGdI2yV3FYQ2JuZZenqAqDPz0gWj0ew6vlAtdEVBNb7p+Dm2TAIxpVYMA==}
+    engines: {node: '>=14.0.0'}
+
   aws-lambda@1.0.7:
     resolution: {integrity: sha512-9GNFMRrEMG5y3Jvv+V4azWvc+qNWdWLTjDdhf/zgMlz8haaaLWv0xeAIWxz9PuWUBawsVxy0zZotjCdR3Xq+2w==}
     hasBin: true
@@ -6821,6 +6834,12 @@ snapshots:
       signedsource: 1.0.0
     transitivePeerDependencies:
       - encoding
+
+  '@aws-amplify/adapter-nextjs@1.6.4(aws-amplify@6.15.1)(next@15.3.4(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))':
+    dependencies:
+      aws-amplify: 6.15.1
+      aws-jwt-verify: 4.0.1
+      next: 15.3.4(@babel/core@7.27.4)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
 
   '@aws-amplify/analytics@7.0.82(@aws-amplify/core@6.12.1)':
     dependencies:
@@ -12926,6 +12945,8 @@ snapshots:
       '@aws-cdk/asset-node-proxy-agent-v6': 2.1.0
       '@aws-cdk/cloud-assembly-schema': 41.2.0
       constructs: 10.4.2
+
+  aws-jwt-verify@4.0.1: {}
 
   aws-lambda@1.0.7:
     dependencies:

@@ -1,53 +1,58 @@
+"use client";
+
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Heart, Star, Clock } from "lucide-react";
-import type { Schema } from "@/../amplify/data/resource";
 import { useCartStore } from "@/features/Checkout";
 
-type MenuItem = Schema["MenuItem"]["type"];
-
 interface Props {
-  menuItem: MenuItem;
-  time?: string;
-  rating?: number;
+  id: string;
+  name: string;
+  price: number;
+  imageUrl: string;
   originalPrice?: number;
   discount?: number;
   isNew?: boolean;
   isFavorite?: boolean;
+  rating?: number;
+  time?: string;
 }
 const MenuItemMiniCard: React.FC<Props> = ({
-  menuItem,
-  originalPrice,
-  time,
-  rating,
-  discount = 0,
-  isNew = false,
+  id,
+  name,
+  price,
+  imageUrl,
+  discount,
+  isNew,
   isFavorite,
+  rating,
+  time,
+  originalPrice,
 }) => {
   const { addItem } = useCartStore();
 
   const handleAddToCart = () => {
     addItem({
-      id: menuItem.id,
-      price: menuItem.price,
-      name: menuItem.name,
-      image: menuItem.imageUrl,
+      id: id,
+      price: price,
+      name: name,
+      image: imageUrl,
     });
   };
 
   return (
-    <Card>
+    <Card className="p-0">
       <CardContent className="p-0">
         <div className="flex">
           <div className="relative shrink-0">
             <img
-              src={menuItem.imageUrl}
-              alt={menuItem.name}
+              src={imageUrl}
+              alt={name}
               className="h-full w-32 rounded-l-xl object-cover"
             />
-            {discount > 0 && (
+            {discount && (
               <Badge className="absolute top-2 left-2 bg-red-500 px-2 py-1 text-xs text-white">
                 -{discount}%
               </Badge>
@@ -63,7 +68,7 @@ const MenuItemMiniCard: React.FC<Props> = ({
             <div>
               <div className="mb-1 flex items-start justify-between">
                 <h4 className="text-sm leading-tight font-semibold text-gray-900">
-                  {menuItem.name}
+                  {name}
                 </h4>
                 <Button
                   variant="ghost"
@@ -93,7 +98,7 @@ const MenuItemMiniCard: React.FC<Props> = ({
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 <span className="font-bold text-orange-500">
-                  {menuItem.price} ₴
+                  {price} ₴
                 </span>
                 {originalPrice && (
                   <span className="text-xs text-gray-400 line-through">

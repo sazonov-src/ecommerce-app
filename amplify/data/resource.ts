@@ -15,7 +15,7 @@ const schema = a.schema({
     .model({
       name: a.string().required(),
       price: a.integer().required(),
-      categoryId: a.string(),
+      categoryId: a.string().required(),
       category: a.belongsTo("Category", "categoryId"),
       imageUrl: a.url().required(),
     })
