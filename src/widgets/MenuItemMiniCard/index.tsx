@@ -97,9 +97,7 @@ const MenuItemMiniCard: React.FC<Props> = ({
 
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
-                <span className="font-bold text-orange-500">
-                  {price} ₴
-                </span>
+                <span className="font-bold text-orange-500">{price} ₴</span>
                 {originalPrice && (
                   <span className="text-xs text-gray-400 line-through">
                     {originalPrice} ₴

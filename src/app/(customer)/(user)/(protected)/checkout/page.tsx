@@ -7,7 +7,8 @@ import { CreditCard, Plus, Check } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useCartStore } from "@/features/Checkout";
 import useCheckout from "@/features/Checkout/useCheckout";
-import { toast } from "sonner"
+import { toast } from "sonner";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const Checkout = () => {
   const router = useRouter();
@@ -16,14 +17,18 @@ const Checkout = () => {
   const { loading, checkoutId, handleCheckout } = useCheckout();
 
   React.useEffect(() => {
+    if (!totalPrice) {
+      console.log("items", totalPrice);
+      router.replace("/");
+    }
     if (checkoutId) {
       router.push(`/orders/${checkoutId}`);
     }
-  }, [checkoutId, router]);
+  }, [checkoutId, router, items]);
 
   // Збережені картки користувача
   const savedCards = [
-    {
+    { 
       id: "card1",
       last4: "4532",
       brand: "Visa",
@@ -44,7 +49,7 @@ const Checkout = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedCard) {
-      toast( "Оберіть картку", {
+      toast("Оберіть картку", {
         description: "Будь ласка, оберіть картку для оплати",
       });
       return;
@@ -53,7 +58,7 @@ const Checkout = () => {
     if (!checkoutId) {
       return;
     }
-    toast( "Замовлення підтверджено!", {
+    toast("Замовлення підтверджено!", {
       description:
         "Дякуємо за ваше замовлення. Перенаправляємо на сторінку відстеження...",
     });
@@ -62,97 +67,130 @@ const Checkout = () => {
     }, 2000);
   };
 
+  if (!totalPrice) {
+    return (
+      <LayoutCard
+        title=<Skeleton className="h-6 w-40" />
+        description=<Skeleton className="h-4 w-60" />
+      >
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="flex items-center justify-between">
+            <div className="flex space-x-2">
+              <Skeleton className="h-4 w-24" />
+              <Skeleton className="h-4 w-6" />
+            </div>
+            <Skeleton className="h-4 w-12" />
+          </div>
+        ))}
+
+        <div className="bg-muted my-2 h-px" />
+
+        <div className="flex justify-between">
+          <Skeleton className="h-4 w-32" />
+          <Skeleton className="h-4 w-16" />
+        </div>
+
+        <div className="bg-muted my-2 h-px" />
+
+        <div className="flex justify-between">
+          <Skeleton className="h-5 w-28" />
+          <Skeleton className="h-5 w-20" />
+        </div>
+      </LayoutCard>
+    );
+  }
+
   return (
     <>
       {/* Order Summary */}
-      <LayoutCard 
+      <LayoutCard
         title="Ваше замовлення"
         description="Перевірте деталі вашого замовлення"
       >
-          <div className="space-y-3">
-            {Object.values(items).map((item) => (
-              <div key={item.id} className="flex items-center justify-between">
-                <div>
-                  <span className="font-medium">{item.name}</span>
-                  <span className="ml-2 text-gray-500">x{item.quantity}</span>
-                </div>
-                <span>{item.price * item.quantity} ₴</span>
+        <div className="space-y-3">
+          {Object.values(items).map((item) => (
+            <div key={item.id} className="flex items-center justify-between">
+              <div>
+                <span className="font-medium">{item.name}</span>
+                <span className="ml-2 text-gray-500">x{item.quantity}</span>
               </div>
-            ))}
-            <Separator className="my-2" />
-            <div className="flex justify-between">
-              <span className="text-gray-600">Вартість страв</span>
-              <span>{totalPrice} ₴</span>
+              <span>{item.price * item.quantity} ₴</span>
             </div>
-            <Separator className="my-2" />
-            <div className="flex justify-between font-bold">
-              <span>Всього до оплати</span>
-              <span>{totalPrice} ₴</span>
-            </div>
+          ))}
+          <Separator className="my-2" />
+          <div className="flex justify-between">
+            <span className="text-gray-600">Вартість страв</span>
+            <span>{totalPrice} ₴</span>
           </div>
+          <Separator className="my-2" />
+          <div className="flex justify-between font-bold">
+            <span>Всього до оплати</span>
+            <span>{totalPrice} ₴</span>
+          </div>
+        </div>
       </LayoutCard>
 
       {/* Payment Details */}
-      <LayoutCard 
+      <LayoutCard
         title="Платіжні дані"
         description="Оберіть збережену картку для оплати"
       >
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-3">
-              {savedCards.map((card) => (
-                <div
-                  key={card.id}
-                  className={`relative cursor-pointer rounded-lg border p-4 transition-all ${
-                    selectedCard === card.id
-                      ? "border-orange-500 bg-orange-50"
-                      : "border-gray-200 hover:border-gray-300"
-                  }`}
-                  onClick={() => setSelectedCard(card.id)}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <div className="rounded border bg-white p-2">
-                        <CreditCard className="h-4 w-4 text-gray-600" />
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="space-y-3">
+            {savedCards.map((card) => (
+              <div
+                key={card.id}
+                className={`relative cursor-pointer rounded-lg border p-4 transition-all ${
+                  selectedCard === card.id
+                    ? "border-orange-500 bg-orange-50"
+                    : "border-gray-200 hover:border-gray-300"
+                }`}
+                onClick={() => setSelectedCard(card.id)}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <div className="rounded border bg-white p-2">
+                      <CreditCard className="h-4 w-4 text-gray-600" />
+                    </div>
+                    <div>
+                      <div className="font-medium">
+                        {card.brand} •••• {card.last4}
                       </div>
-                      <div>
-                        <div className="font-medium">
-                          {card.brand} •••• {card.last4}
-                        </div>
-                        <div className="text-sm text-gray-500">
-                          {card.holderName} •{" "}
-                          {card.expiryMonth.toString().padStart(2, "0")}/
-                          {card.expiryYear}
-                        </div>
+                      <div className="text-sm text-gray-500">
+                        {card.holderName} •{" "}
+                        {card.expiryMonth.toString().padStart(2, "0")}/
+                        {card.expiryYear}
                       </div>
                     </div>
-                    {selectedCard === card.id && (
-                      <div className="rounded-full bg-orange-500 p-1">
-                        <Check className="h-3 w-3 text-white" />
-                      </div>
-                    )}
                   </div>
-                </div>
-              ))}
-
-              {/* Додати нову картку */}
-              <div className="cursor-pointer rounded-lg border border-dashed border-gray-300 p-4 transition-colors hover:border-gray-400">
-                <div className="flex items-center justify-center space-x-2 text-gray-500">
-                  <Plus className="h-4 w-4" />
-                  <span>Додати нову картку</span>
+                  {selectedCard === card.id && (
+                    <div className="rounded-full bg-orange-500 p-1">
+                      <Check className="h-3 w-3 text-white" />
+                    </div>
+                  )}
                 </div>
               </div>
-            </div>
+            ))}
 
-            <div className="flex justify-end px-0 pt-4">
-              <Button
-                type="submit"
-                className="w-full bg-orange-500 hover:bg-orange-600"
-                disabled={!selectedCard || loading}
-              >
-                Оплатити {totalPrice} ₴
-              </Button>
+            {/* Додати нову картку */}
+            <div className="cursor-pointer rounded-lg border border-dashed border-gray-300 p-4 transition-colors hover:border-gray-400">
+              <div className="flex items-center justify-center space-x-2 text-gray-500">
+                <Plus className="h-4 w-4" />
+                <span>Додати нову картку</span>
+              </div>
             </div>
-          </form>
+          </div>
+
+          <div className="flex justify-end px-0 pt-4">
+            <Button
+              type="submit"
+              className="w-full bg-orange-500 hover:bg-orange-600"
+              disabled={!selectedCard || loading}
+            >
+              Оплатити {totalPrice} ₴
+            </Button>
+          </div>
+        </form>
       </LayoutCard>
     </>
   );

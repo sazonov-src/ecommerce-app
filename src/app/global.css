@@ -211,6 +211,8 @@
   }
 }
 
-[data-sonner-toaster][data-sonner-theme='dark'] [data-description] {
-  color: hsl(var(--muted-foreground)) !important;; /* або будь-яке інше значення */
+[data-sonner-toaster][data-sonner-theme="dark"] [data-description] {
+  color: hsl(
+    var(--muted-foreground)
+  ) !important; /* або будь-яке інше значення */
 }

@@ -4,7 +4,7 @@ import { type Metadata } from "next";
 import { Geist } from "next/font/google";
 import ConfigureAmplifyClientSide from "@/components/ConfigureAmplify";
 import { AuthProvider } from "@/features/auth";
-import { Toaster } from "@/components/ui/sonner"
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en" className={`${geist.variable}`}>
       <body>
         <ConfigureAmplifyClientSide />
-        <Toaster /> 
+        <Toaster />
         <AuthProvider>
           <div className="min-h-screen bg-gray-50">{children}</div>
         </AuthProvider>

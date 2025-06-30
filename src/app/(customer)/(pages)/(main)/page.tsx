@@ -1,4 +1,7 @@
-import { reqResClient, runWithAmplifyServerContext } from "@/utils/amplify-utils";
+import {
+  reqResClient,
+  runWithAmplifyServerContext,
+} from "@/utils/amplify-utils";
 import MenuItems from "./_components/MenuItems";
 import type { AmplifyServer } from "aws-amplify/adapter-core";
 import { unstable_cache } from "next/cache";
@@ -11,9 +14,10 @@ async function fetchMenuItems(contextSpec: AmplifyServer.ContextSpec) {
 
   const { data: categories } = await reqResClient.models.Category.list(
     { token: contextSpec.token },
-    { selectionSet: ["id", "name"] }
+    { selectionSet: ["id", "name"] },
   );
-  if (!menuItems.length || !categories.length) throw new Error("Menu items not found");
+  if (!menuItems.length || !categories.length)
+    throw new Error("Menu items not found");
   return { menuItems, categories };
 }
 
@@ -24,18 +28,15 @@ export default async function Page() {
     async () => {
       const data = await runWithAmplifyServerContext({
         nextServerContext: null,
-        operation: (contextSpec) =>
-          fetchMenuItems(contextSpec),
+        operation: (contextSpec) => fetchMenuItems(contextSpec),
       });
       return data;
-    }, [], {revalidate: 10},
-  )
+    },
+    [],
+    { revalidate: 10 },
+  );
 
   const data = await getCachedUser();
 
-  return (
-    <MenuItems 
-      menuItems={data.menuItems} 
-      categories={data.categories} />
-  );
-};
+  return <MenuItems menuItems={data.menuItems} categories={data.categories} />;
+}

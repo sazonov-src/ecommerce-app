@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { toast } from "sonner"
+import { toast } from "sonner";
 
 export type OrderStatusType = "pending" | "preparing" | "ready" | "completed";
 
 export const useOrderStatus = () => {
-
   const [orderStatus, setOrderStatus] = useState<OrderStatusType>("pending");
   const [timeRemaining, setTimeRemaining] = useState<number>(15 * 60); // 15 хв у секундах
 
@@ -12,7 +11,7 @@ export const useOrderStatus = () => {
   useEffect(() => {
     const prepareTimer = setTimeout(() => {
       setOrderStatus("preparing");
-      toast( "Замовлення готується!", {
+      toast("Замовлення готується!", {
         description: "Шеф-кухар почав готувати ваше замовлення.",
       });
     }, 5000);
@@ -26,7 +25,7 @@ export const useOrderStatus = () => {
 
     const completedTimer = setTimeout(() => {
       setOrderStatus("completed");
-      toast( "Замовлення завершено!", {
+      toast("Замовлення завершено!", {
         description: "Дякуємо за ваше замовлення!",
       });
     }, 35000);

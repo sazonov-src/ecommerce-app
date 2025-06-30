@@ -1,21 +1,21 @@
-'use client'
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { AlertTriangle } from "lucide-react"
-import { useEffect } from "react"
-import { Card } from "@/components/ui/card"
+import { Button } from "@/components/ui/button";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { AlertTriangle } from "lucide-react";
+import { useEffect } from "react";
+import { Card } from "@/components/ui/card";
 
 export default function Error({
   error,
   reset,
 }: {
-  error: Error & { digest?: string }
-  reset: () => void
+  error: Error & { digest?: string };
+  reset: () => void;
 }) {
   useEffect(() => {
-    console.error(error)
-  }, [error])
+    console.error(error);
+  }, [error]);
 
   return (
     <Card className="flex flex-col items-center justify-center gap-4">
@@ -30,5 +30,5 @@ export default function Error({
         Спробувати знову
       </Button>
     </Card>
-  )
+  );
 }

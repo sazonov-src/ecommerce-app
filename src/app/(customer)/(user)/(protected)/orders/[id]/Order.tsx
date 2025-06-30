@@ -20,41 +20,37 @@ export default function Order({ id }: { id: string }) {
         title="Статус замовлення"
         description="Відстежуйте поточний стан вашого замовлення"
       >
-        {
-          order ? (
-            <OrderStatus orderId={order.id} />
-          ) : (
-            <div className="space-y-2">
-              <Skeleton className="h-4 w-40" />
-              <Skeleton className="h-4 w-24" />
-            </div>
-          )
-        }
+        {order ? (
+          <OrderStatus orderId={order.id} />
+        ) : (
+          <div className="space-y-2">
+            <Skeleton className="h-4 w-40" />
+            <Skeleton className="h-4 w-24" />
+          </div>
+        )}
       </LayoutCard>
 
       <LayoutCard
         title="Деталі замовлення"
         description="Перевірте склад вашого замовлення"
       >
-        {
-          order ? (
-            <div>
-              <OrderItems orderId={order.id} />
-              <Separator className="my-3" />
-              <div className="flex justify-between text-lg font-bold">
-                <span>Сума</span>
-                <span>{order.totalPrice} ₴</span>
-              </div>
+        {order ? (
+          <div>
+            <OrderItems orderId={order.id} />
+            <Separator className="my-3" />
+            <div className="flex justify-between text-lg font-bold">
+              <span>Сума</span>
+              <span>{order.totalPrice} ₴</span>
             </div>
-          ) : (
-            <div className="space-y-4">
-              <div className="flex justify-between">
-                <Skeleton className="h-6 w-20" />
-                <Skeleton className="h-6 w-16" />
-              </div>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            <div className="flex justify-between">
+              <Skeleton className="h-6 w-20" />
+              <Skeleton className="h-6 w-16" />
             </div>
-          )
-        }
+          </div>
+        )}
       </LayoutCard>
 
       <Link href="/" className="block">

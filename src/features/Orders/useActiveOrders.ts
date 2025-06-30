@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { generateClient } from "aws-amplify/data";
 import type { Schema } from "@/../amplify/data/resource";
-import { type OrderStatus as Status, type OrderModel } from "@/../amplify/types";
+import {
+  type OrderStatus as Status,
+  type OrderModel,
+} from "@/../amplify/types";
 
 const client = generateClient<Schema>();
 
