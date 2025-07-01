@@ -19,9 +19,9 @@ const Cart = () => {
   } = useCartStore();
 
   return totalQuantity > 0 ? (
-    <div className="px-4 py-6">
-      <ScrollArea className="max-h-[calc(100vh-280px)]">
-        <div className="space-y-3">
+    <div className="flex flex-col h-full">
+        <ScrollArea className="h-[60vh]">
+          <div className="space-y-3">
           {Object.values(items).map((item) => (
             <CartItemComponent
               key={item.id}
