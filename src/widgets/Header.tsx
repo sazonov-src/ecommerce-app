@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { ShoppingCart, Menu } from "lucide-react";
 import Link from "next/link";
 import { useCartStore } from "@/features/Checkout";
+import { AuthWidget } from "@/features/auth/components/AuthWidget";
 
 const Header = () => {
   const { totalQuantity: cartCount } = useCartStore();
@@ -20,7 +21,7 @@ const Header = () => {
               <p className="text-xs text-gray-500">Доставка за 30 хв</p>
             </div>
           </div>
-          <div className="relative">
+          <div className="flex items-center space-x-2">
             <Link href="/cart">
               <Button variant="ghost" size="icon" className="relative">
                 <ShoppingCart className="h-6 w-6" />
@@ -31,6 +32,7 @@ const Header = () => {
                 )}
               </Button>
             </Link>
+            <AuthWidget />
           </div>
         </div>
       </div>
