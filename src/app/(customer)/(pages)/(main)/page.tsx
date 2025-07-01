@@ -16,8 +16,6 @@ async function fetchMenuItems(contextSpec: AmplifyServer.ContextSpec) {
     { token: contextSpec.token },
     { selectionSet: ["id", "name"] },
   );
-  if (!menuItems.length || !categories.length)
-    throw new Error("Menu items not found");
   return { menuItems, categories };
 }
 
