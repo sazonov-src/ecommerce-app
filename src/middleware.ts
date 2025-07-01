@@ -25,19 +25,11 @@ export async function middleware(request: NextRequest) {
     return response;
   }
 
-  return NextResponse.redirect(new URL("/login", request.url));
+  const redirectUrl = new URL("/login", request.url);
+  redirectUrl.searchParams.set("redirect", request.nextUrl.pathname);
+  return NextResponse.redirect(redirectUrl);
 }
 
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - login
-     */
-    "/((?!api|_next/static|_next/image|favicon.ico|login).*)",
-  ],
+  matcher: ["/checkout/:path*", "/orders/:path*"],
 };
