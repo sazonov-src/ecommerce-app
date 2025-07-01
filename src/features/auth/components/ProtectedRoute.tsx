@@ -1,7 +1,7 @@
 "use client";
 import type { ReactNode } from "react";
 import { useAuth } from "../context/AuthContext";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 type ProtectedRouteProps = {
   children: ReactNode;
@@ -14,6 +14,7 @@ export const ProtectedRoute = ({
 }: ProtectedRouteProps) => {
   const { isAuthenticated, isAdmin, isLoading } = useAuth();
   const router = useRouter();
+  const pathname = usePathname();
 
   if (isLoading) {
     return (
@@ -24,7 +25,7 @@ export const ProtectedRoute = ({
   }
 
   if (!isAuthenticated) {
-    router.push("/login");
+    router.push(`/login?redirect=${pathname}`);
     return null;
   }
 
