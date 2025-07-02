@@ -9,7 +9,6 @@ import { AuthWidget } from "@/features/auth/components/AuthWidget";
 const Header = () => {
   const { totalQuantity: cartCount } = useCartStore();
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-xs">
       <div className="px-4 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
@@ -36,7 +35,6 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </header>
   );
 };
 

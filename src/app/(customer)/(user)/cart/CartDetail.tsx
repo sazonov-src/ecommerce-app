@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const CartDetail = ({ total }: { total: number }) => (
-  <Card className="mt-6">
+  <Card>
     <CardContent className="space-y-4">
       <h3 className="text-lg font-semibold">Деталі замовлення</h3>
       <div className="flex justify-between font-bold">

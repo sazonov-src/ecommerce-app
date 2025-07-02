@@ -1,6 +1,6 @@
 import { type Metadata } from "next";
+import { Layout } from "@/components/Layout";
 import Header from "@/widgets/Header";
-import Container from "@/components/Container";
 
 export const metadata: Metadata = {
   title: "Create T3 App",
@@ -12,9 +12,12 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <>
-      <Header />
-      <Container>{children}</Container>
-    </>
+    <Layout
+      header={
+        <Header />
+      }
+    >
+      {children}
+    </Layout>
   );
 }

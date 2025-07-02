@@ -19,8 +19,8 @@ const Cart = () => {
   } = useCartStore();
 
   return totalQuantity > 0 ? (
-    <div className="flex flex-col h-full">
-        <ScrollArea className="h-[60vh]">
+    <>
+        <ScrollArea className="shrank max-h-[55vh]">
           <div className="space-y-3">
           {Object.values(items).map((item) => (
             <CartItemComponent
@@ -34,7 +34,7 @@ const Cart = () => {
         </div>
       </ScrollArea>
       <CartDetail total={totalPrice} />
-    </div>
+    </>
   ) : (
     <div className="flex h-[60vh] flex-col items-center justify-center px-4 text-center">
       <div className="mb-4 rounded-full bg-gray-100 p-6">

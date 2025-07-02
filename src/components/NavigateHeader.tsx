@@ -18,14 +18,12 @@ const NavigateHeader = () => {
   const title = pathTitles[pathname] || "Назад";
 
   return (
-    <header className="sticky top-0 z-50 bg-white">
-      <div className="flex items-center gap-2 px-4 py-4">
-        <Button variant="ghost" size="icon" onClick={() => router.back()}>
-          <ArrowLeft className="h-5 w-5" />
-        </Button>
-        <h1 className="text-xl font-bold">{title}</h1>
-      </div>
-    </header>
+    <div className="flex items-center gap-2 px-4 py-4">
+      <Button variant="ghost" size="icon" onClick={() => router.back()}>
+        <ArrowLeft className="h-5 w-5" />
+      </Button>
+      <h1 className="text-xl font-bold">{title}</h1>
+    </div>
   );
 };
 
