@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import Section from "@/components/Section";
+import Section from "./Section";
 
 const QuickActions = () => (
   <Section>

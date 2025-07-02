@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import MenuItemMiniCard from "@/widgets/MenuItemMiniCard";
-import Section from "@/components/Section";
+import Section from "./Section";
 import { useState } from "react";
 
 interface Props {

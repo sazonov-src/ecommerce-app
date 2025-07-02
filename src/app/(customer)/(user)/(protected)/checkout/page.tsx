@@ -28,7 +28,7 @@ const Checkout = () => {
 
   // Збережені картки користувача
   const savedCards = [
-    { 
+    {
       id: "card1",
       last4: "4532",
       brand: "Visa",

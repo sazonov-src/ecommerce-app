@@ -1,5 +1,5 @@
 import { type Metadata } from "next";
-import { Layout } from "@/components/Layout";
+import { Layout } from "./../_components/Layout";
 import Header from "@/widgets/Header";
 
 export const metadata: Metadata = {
@@ -11,13 +11,5 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <Layout
-      header={
-        <Header />
-      }
-    >
-      {children}
-    </Layout>
-  );
+  return <Layout header={<Header />}>{children}</Layout>;
 }

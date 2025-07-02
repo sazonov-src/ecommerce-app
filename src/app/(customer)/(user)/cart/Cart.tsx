@@ -20,8 +20,8 @@ const Cart = () => {
 
   return totalQuantity > 0 ? (
     <>
-        <ScrollArea className="shrank max-h-[55vh]">
-          <div className="space-y-3">
+      <ScrollArea className="shrank max-h-[55vh]">
+        <div className="space-y-3">
           {Object.values(items).map((item) => (
             <CartItemComponent
               key={item.id}

@@ -1,7 +1,7 @@
 import { type Metadata } from "next";
 import Hero from "./_components/Hero";
 import QuickActions from "./_components/QuickActions";
-import Section from "@/components/Section";
+import Section from "./_components/Section";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 

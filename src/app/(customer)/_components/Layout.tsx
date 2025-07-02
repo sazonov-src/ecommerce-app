@@ -8,10 +8,10 @@ export const Layout = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div className="flex flex-col h-screen">
-      <header className="shrink-0 bg-white z-50">{header}</header>
+    <div className="flex h-screen flex-col">
+      <header className="z-50 shrink-0 bg-white">{header}</header>
       <main className="flex-1 overflow-y-auto">
-        <div className="container max-w-xl h-full flex flex-col space-y-4 p-4">
+        <div className="container flex h-full max-w-xl flex-col space-y-4 p-4">
           {children}
         </div>
       </main>
