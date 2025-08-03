@@ -7,7 +7,7 @@ const NavigateHeader = () => {
       <Button variant="ghost" size="icon">
         <ArrowLeft className="h-5 w-5" />
       </Button>
-      <h1 className="text-xl font-bold">Замовлення</h1>
+      <h1 className="text-xl font-bold">Order</h1>
     </div>
   );
 };

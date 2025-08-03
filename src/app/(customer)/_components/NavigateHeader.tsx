@@ -5,17 +5,17 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const pathTitles: Record<string, string> = {
-  "/": "Головна",
-  "/cart": "Кошик",
-  "/checkout": "Оформлення замовлення",
-  "/orders": "Мої замовлення",
+  "/": "Home",
+  "/cart": "Cart",
+  "/checkout": "Checkout",
+  "/orders": "My Orders",
 };
 
 const NavigateHeader = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const title = pathTitles[pathname] || "Назад";
+  const title = pathTitles[pathname] || "Back";
 
   return (
     <div className="flex items-center gap-2 px-4 py-4">

@@ -17,8 +17,8 @@ export default function Order({ id }: { id: string }) {
   return (
     <>
       <LayoutCard
-        title="Статус замовлення"
-        description="Відстежуйте поточний стан вашого замовлення"
+        title="Order Status"
+        description="Track the current status of your order"
       >
         {order ? (
           <OrderStatus orderId={order.id} />
@@ -31,15 +31,15 @@ export default function Order({ id }: { id: string }) {
       </LayoutCard>
 
       <LayoutCard
-        title="Деталі замовлення"
-        description="Перевірте склад вашого замовлення"
+        title="Order Details"
+        description="Check the composition of your order"
       >
         {order ? (
           <div>
             <OrderItems orderId={order.id} />
             <Separator className="my-3" />
             <div className="flex justify-between text-lg font-bold">
-              <span>Сума</span>
+              <span>Total</span>
               <span>{order.totalPrice} ₴</span>
             </div>
           </div>
@@ -54,7 +54,7 @@ export default function Order({ id }: { id: string }) {
       </LayoutCard>
 
       <Link href="/" className="block">
-        <Button className="w-full">Повернутися на головну</Button>
+        <Button className="w-full">Back to Home</Button>
       </Link>
     </>
   );

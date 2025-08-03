@@ -40,13 +40,13 @@ const Cart = () => {
       <div className="mb-4 rounded-full bg-gray-100 p-6">
         <ShoppingBag className="h-12 w-12 text-gray-400" />
       </div>
-      <h2 className="mb-2 text-xl font-bold">Ваш кошик порожній</h2>
+      <h2 className="mb-2 text-xl font-bold">Your cart is empty</h2>
       <p className="mb-6 text-gray-500">
-        Додайте товари з меню, щоб зробити замовлення
+        Add items from the menu to place an order
       </p>
       <Link href="/">
         <Button className="bg-orange-500 hover:bg-orange-600">
-          Повернутися до меню
+          Back to Menu
         </Button>
       </Link>
     </div>

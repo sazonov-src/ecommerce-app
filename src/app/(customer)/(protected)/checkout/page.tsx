@@ -26,7 +26,7 @@ const Checkout = () => {
     }
   }, [checkoutId, router, items]);
 
-  // Збережені картки користувача
+  // User's saved cards
   const savedCards = [
     {
       id: "card1",
@@ -34,7 +34,7 @@ const Checkout = () => {
       brand: "Visa",
       expiryMonth: 12,
       expiryYear: 26,
-      holderName: "Іван Петренко",
+      holderName: "John Peterson",
     },
     {
       id: "card2",
@@ -42,15 +42,15 @@ const Checkout = () => {
       brand: "Mastercard",
       expiryMonth: 8,
       expiryYear: 25,
-      holderName: "Іван Петренко",
+      holderName: "John Peterson",
     },
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedCard) {
-      toast("Оберіть картку", {
-        description: "Будь ласка, оберіть картку для оплати",
+      toast("Select a card", {
+        description: "Please select a card for payment",
       });
       return;
     }
@@ -58,9 +58,9 @@ const Checkout = () => {
     if (!checkoutId) {
       return;
     }
-    toast("Замовлення підтверджено!", {
+    toast("Order confirmed!", {
       description:
-        "Дякуємо за ваше замовлення. Перенаправляємо на сторінку відстеження...",
+        "Thank you for your order. Redirecting to tracking page...",
     });
     setTimeout(() => {
       router.push("/order-details");
@@ -104,8 +104,8 @@ const Checkout = () => {
     <>
       {/* Order Summary */}
       <LayoutCard
-        title="Ваше замовлення"
-        description="Перевірте деталі вашого замовлення"
+        title="Your Order"
+        description="Review your order details"
       >
         <div className="space-y-3">
           {Object.values(items).map((item) => (
@@ -119,12 +119,12 @@ const Checkout = () => {
           ))}
           <Separator className="my-2" />
           <div className="flex justify-between">
-            <span className="text-gray-600">Вартість страв</span>
+            <span className="text-gray-600">Food Cost</span>
             <span>{totalPrice} ₴</span>
           </div>
           <Separator className="my-2" />
           <div className="flex justify-between font-bold">
-            <span>Всього до оплати</span>
+            <span>Total to Pay</span>
             <span>{totalPrice} ₴</span>
           </div>
         </div>
@@ -132,8 +132,8 @@ const Checkout = () => {
 
       {/* Payment Details */}
       <LayoutCard
-        title="Платіжні дані"
-        description="Оберіть збережену картку для оплати"
+        title="Payment Information"
+        description="Select a saved card for payment"
       >
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-3">
@@ -172,11 +172,11 @@ const Checkout = () => {
               </div>
             ))}
 
-            {/* Додати нову картку */}
+            {/* Add New Card */}
             <div className="cursor-pointer rounded-lg border border-dashed border-gray-300 p-4 transition-colors hover:border-gray-400">
               <div className="flex items-center justify-center space-x-2 text-gray-500">
                 <Plus className="h-4 w-4" />
-                <span>Додати нову картку</span>
+                <span>Add New Card</span>
               </div>
             </div>
           </div>
@@ -187,7 +187,7 @@ const Checkout = () => {
               className="w-full bg-orange-500 hover:bg-orange-600"
               disabled={!selectedCard || loading}
             >
-              Оплатити {totalPrice} ₴
+              Pay {totalPrice} ₴
             </Button>
           </div>
         </form>

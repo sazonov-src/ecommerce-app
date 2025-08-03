@@ -5,13 +5,13 @@ import Link from "next/link";
 const CartDetail = ({ total }: { total: number }) => (
   <Card>
     <CardContent className="space-y-4">
-      <h3 className="text-lg font-semibold">Деталі замовлення</h3>
+      <h3 className="text-lg font-semibold">Order Details</h3>
       <div className="flex justify-between font-bold">
-        <span>Разом</span>
+        <span>Total</span>
         <span>{total} ₴</span>
       </div>
       <Link href="/checkout">
-        <Button className="mt-2 w-full">Оформити замовлення</Button>
+        <Button className="mt-2 w-full">Place Order</Button>
       </Link>
     </CardContent>
   </Card>

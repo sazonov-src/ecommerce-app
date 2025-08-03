@@ -11,10 +11,10 @@ type AccessDeniedProps = {
 };
 
 export const AccessDenied = ({
-  title = "Доступ заборонено",
-  description = "У вас немає прав для доступу до цієї сторінки.",
+  title = "Access Denied",
+  description = "You don't have permission to access this page.",
   redirectPath = "/",
-  redirectText = "Повернутися на головну",
+  redirectText = "Back to Home",
 }: AccessDeniedProps) => {
   return (
     <div className="container mx-auto max-w-md px-4 py-8">

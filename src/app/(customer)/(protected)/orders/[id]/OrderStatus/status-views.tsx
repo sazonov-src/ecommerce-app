@@ -13,8 +13,8 @@ const formatTimeRemaining = (seconds: number) => {
 export const PendingStatusUI = ({ orderId }: { orderId: string }) => (
   <BaseLayout
     icon={Clock}
-    label="Нове замовлення"
-    description="Очікує на обробку"
+    label="New Order"
+    description="Awaiting processing"
     color="bg-amber-500"
     iconColor="text-amber-600"
     badgeVariant="secondary"
@@ -32,8 +32,8 @@ export const PreparingStatusUI = ({
 }) => (
   <BaseLayout
     icon={Utensils}
-    label="Готується"
-    description="Замовлення готується на кухні"
+    label="Preparing"
+    description="Order is being prepared in the kitchen"
     color="bg-blue-500"
     iconColor="text-blue-600"
     badgeVariant="default"
@@ -49,7 +49,7 @@ export const PreparingStatusUI = ({
           </span>
         </div>
         <p className="mt-1 text-center text-sm text-orange-600">
-          Орієнтовний час до готовності
+          Estimated time until ready
         </p>
       </div>
     )}
@@ -59,8 +59,8 @@ export const PreparingStatusUI = ({
 export const ReadyStatusUI = ({ orderId }: { orderId: string }) => (
   <BaseLayout
     icon={Package}
-    label="Готово"
-    description="Замовлення готове до видачі"
+    label="Ready"
+    description="Order is ready for pickup"
     color="bg-green-500"
     iconColor="text-green-600"
     badgeVariant="default"
@@ -70,10 +70,10 @@ export const ReadyStatusUI = ({ orderId }: { orderId: string }) => (
     <Alert className="mt-4 animate-pulse border-green-200 bg-green-50">
       <CheckCircle className="h-4 w-4 text-green-600" />
       <AlertTitle className="text-green-700">
-        Ваше замовлення готове!
+        Your order is ready!
       </AlertTitle>
       <AlertDescription className="text-green-600">
-        Покажіть номер замовлення при отриманні: <strong>#{orderId}</strong>
+        Show order number when picking up: <strong>#{orderId}</strong>
       </AlertDescription>
     </Alert>
   </BaseLayout>
@@ -82,8 +82,8 @@ export const ReadyStatusUI = ({ orderId }: { orderId: string }) => (
 export const CompletedStatusUI = ({ orderId }: { orderId: string }) => (
   <BaseLayout
     icon={CheckCircle}
-    label="Виконано"
-    description="Замовлення отримане"
+    label="Completed"
+    description="Order received"
     color="bg-green-600"
     iconColor="text-green-600"
     badgeVariant="default"
@@ -92,9 +92,9 @@ export const CompletedStatusUI = ({ orderId }: { orderId: string }) => (
   >
     <Alert className="mt-4 border-green-200 bg-green-50">
       <CheckCircle className="h-4 w-4 text-green-600" />
-      <AlertTitle className="text-green-700">Замовлення завершено!</AlertTitle>
+      <AlertTitle className="text-green-700">Order completed!</AlertTitle>
       <AlertDescription className="text-green-600">
-        Дякуємо за ваше замовлення!
+        Thank you for your order!
       </AlertDescription>
     </Alert>
   </BaseLayout>

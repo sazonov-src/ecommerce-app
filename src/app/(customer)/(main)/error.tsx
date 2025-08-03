@@ -21,13 +21,13 @@ export default function Error({
     <Card className="flex flex-col items-center justify-center gap-4">
       <Alert variant="destructive" className="max-w-md">
         <AlertTriangle className="h-5 w-5" />
-        <AlertTitle>Щось пішло не так</AlertTitle>
+        <AlertTitle>Something went wrong</AlertTitle>
         <AlertDescription>
-          Вибачте, сталася неочікувана помилка. Будь ласка, спробуйте ще раз.
+          Sorry, an unexpected error occurred. Please try again.
         </AlertDescription>
       </Alert>
       <Button onClick={() => reset()} className="mt-6">
-        Спробувати знову
+        Try Again
       </Button>
     </Card>
   );

@@ -1,9 +1,9 @@
 export type OrderStatus =
-  | "pending" // очікує підтвердження
-  | "preparing" // готується
-  | "ready" // готово до видачі
-  | "completed" // виконано
-  | "cancelled"; // скасовано
+  | "pending" // pending confirmation
+  | "preparing" // preparing
+  | "ready" // ready for pickup
+  | "completed" // completed
+  | "cancelled"; // cancelled
 
 export interface OrderItem {
   id: string;

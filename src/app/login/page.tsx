@@ -1,9 +1,9 @@
 "use client";
 import { AuthForm, useAuth } from "@/features/auth";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 
-const Login = () => {
+function LoginContent() {
   const { isAuthenticated, isLoading } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -27,6 +27,18 @@ const Login = () => {
     <div className="flex h-screen items-center justify-center">
       <AuthForm />
     </div>
+  );
+}
+
+const Login = () => {
+  return (
+    <Suspense fallback={
+      <div className="flex h-screen items-center justify-center">
+        <div className="border-primary h-12 w-12 animate-spin rounded-full border-b-2"></div>
+      </div>
+    }>
+      <LoginContent />
+    </Suspense>
   );
 };
 

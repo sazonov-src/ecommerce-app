@@ -12,7 +12,7 @@ const NavigateHeader = () => {
       <Button variant="ghost" size="icon" onClick={() => router.back()}>
         <ArrowLeft className="h-5 w-5" />
       </Button>
-      <h1 className="text-xl font-bold">Кошик</h1>
+      <h1 className="text-xl font-bold">Cart</h1>
     </div>
   );
 };

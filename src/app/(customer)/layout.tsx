@@ -10,6 +10,6 @@ export const metadata: Metadata = {
 export default function CustomerLayout({
   children,
   header
-}: Readonly<{ children: React.ReactNode, header?: React.ReactNode }>) {
+}: Readonly<{ children: React.ReactNode, header: React.ReactNode }>) {
   return <Layout header={header}>{children}</Layout>;
 }

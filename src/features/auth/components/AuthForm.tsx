@@ -43,12 +43,12 @@ export const AuthForm = () => {
     setFormError(null);
 
     if (!email.trim() || !password.trim()) {
-      setFormError("Будь ласка, заповніть усі поля");
+      setFormError("Please fill in all fields");
       return;
     }
 
     if (!isValidEmail(email)) {
-      setFormError("Будь ласка, введіть коректну електронну адресу");
+      setFormError("Please enter a valid email address");
       return;
     }
 
@@ -67,17 +67,17 @@ export const AuthForm = () => {
     setFormError(null);
 
     if (!email.trim() || !password.trim()) {
-      setFormError("Будь ласка, заповніть усі поля");
+      setFormError("Please fill in all fields");
       return;
     }
 
     if (!isValidEmail(email)) {
-      setFormError("Будь ласка, введіть коректну електронну адресу");
+      setFormError("Please enter a valid email address");
       return;
     }
 
     if (password !== confirmPassword) {
-      setFormError("Паролі не співпадають");
+      setFormError("Passwords do not match");
       return;
     }
 
@@ -96,7 +96,7 @@ export const AuthForm = () => {
     setFormError(null);
 
     if (!confirmationCode.trim()) {
-      setFormError("Будь ласка, заповніть усі поля");
+      setFormError("Please fill in all fields");
       return;
     }
 
@@ -115,12 +115,12 @@ export const AuthForm = () => {
     setFormError(null);
 
     if (!email.trim()) {
-      setFormError("Будь ласка, заповніть усі поля");
+      setFormError("Please fill in all fields");
       return;
     }
 
     if (!isValidEmail(email)) {
-      setFormError("Будь ласка, введіть коректну електронну адресу");
+      setFormError("Please enter a valid email address");
       return;
     }
 
@@ -139,7 +139,7 @@ export const AuthForm = () => {
     setFormError(null);
 
     if (!confirmationCode.trim() || !newPassword.trim()) {
-      setFormError("Будь ласка, заповніть усі поля");
+      setFormError("Please fill in all fields");
       return;
     }
 
@@ -166,31 +166,31 @@ export const AuthForm = () => {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Введіть ваш email"
+          placeholder="Enter your email"
           disabled={isSubmitting}
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="password">Пароль</Label>
+        <Label htmlFor="password">Password</Label>
         <Input
           id="password"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Введіть ваш пароль"
+          placeholder="Enter your password"
           disabled={isSubmitting}
         />
       </div>
 
       <Button type="submit" className="w-full" disabled={isSubmitting}>
-        {isSubmitting ? "Завантаження..." : "Увійти"}
+        {isSubmitting ? "Loading..." : "Login"}
       </Button>
 
       <div className="relative mt-4 mb-4 flex items-center justify-center">
         <div className="absolute w-full border-t border-gray-300"></div>
         <span className="dark:bg-background text-muted-foreground z-10 bg-white px-2 text-sm">
-          Або продовжити з
+          Or continue with
         </span>
       </div>
 
@@ -214,7 +214,7 @@ export const AuthForm = () => {
             />
           </svg>
         )}
-        Увійти через Google
+        Login with Google
       </Button>
 
       <div className="flex justify-between pt-2 text-sm">
@@ -224,7 +224,7 @@ export const AuthForm = () => {
           onClick={() => setAuthStep(AuthStep.ForgotPassword)}
           className="h-auto p-0"
         >
-          Забули пароль?
+          Forgot password?
         </Button>
         <Button
           variant="link"
@@ -232,7 +232,7 @@ export const AuthForm = () => {
           onClick={() => setAuthStep(AuthStep.SignUp)}
           className="h-auto p-0"
         >
-          Зареєструватися
+          Register
         </Button>
       </div>
     </form>
@@ -247,37 +247,37 @@ export const AuthForm = () => {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Введіть ваш email"
+          placeholder="Enter your email"
           disabled={isSubmitting}
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="password">Пароль</Label>
+        <Label htmlFor="password">Password</Label>
         <Input
           id="password"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Введіть ваш пароль"
+          placeholder="Enter your password"
           disabled={isSubmitting}
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="confirmPassword">Підтвердіть пароль</Label>
+        <Label htmlFor="confirmPassword">Confirm Password</Label>
         <Input
           id="confirmPassword"
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
-          placeholder="Повторіть ваш пароль"
+          placeholder="Repeat your password"
           disabled={isSubmitting}
         />
       </div>
 
       <Button type="submit" className="w-full" disabled={isSubmitting}>
-        {isSubmitting ? "Завантаження..." : "Зареєструватися"}
+        {isSubmitting ? "Loading..." : "Register"}
       </Button>
 
       <div className="flex justify-center pt-2 text-sm">
@@ -287,7 +287,7 @@ export const AuthForm = () => {
           onClick={() => setAuthStep(AuthStep.SignIn)}
           className="h-auto p-0"
         >
-          Вже маєте обліковий запис?
+          Already have an account?
         </Button>
       </div>
     </form>
@@ -297,7 +297,7 @@ export const AuthForm = () => {
     <form onSubmit={handleConfirmSignUp} className="space-y-4">
       <div>
         <p className="mb-4 text-sm">
-          Код підтвердження надіслано на вашу електронну пошту
+          Confirmation code has been sent to your email
         </p>
       </div>
       <div className="space-y-2">
@@ -307,25 +307,25 @@ export const AuthForm = () => {
           type="email"
           value={tempEmail || email}
           onChange={(e) => setTempEmail(e.target.value)}
-          placeholder="Введіть ваш email"
+          placeholder="Enter your email"
           disabled={isSubmitting || !!tempEmail}
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="confirmationCode">Код підтвердження</Label>
+        <Label htmlFor="confirmationCode">Confirmation Code</Label>
         <Input
           id="confirmationCode"
           type="text"
           value={confirmationCode}
           onChange={(e) => setConfirmationCode(e.target.value)}
-          placeholder="Введіть код підтвердження"
+          placeholder="Enter confirmation code"
           disabled={isSubmitting}
         />
       </div>
 
       <Button type="submit" className="w-full" disabled={isSubmitting}>
-        {isSubmitting ? "Завантаження..." : "Підтвердити реєстрацію"}
+        {isSubmitting ? "Loading..." : "Confirm Registration"}
       </Button>
 
       <div className="flex justify-center pt-2 text-sm">
@@ -335,7 +335,7 @@ export const AuthForm = () => {
           onClick={() => setAuthStep(AuthStep.SignIn)}
           className="h-auto p-0"
         >
-          Повернутися до входу
+          Back to login
         </Button>
       </div>
     </form>
@@ -345,7 +345,7 @@ export const AuthForm = () => {
     <form onSubmit={handleForgotPassword} className="space-y-4">
       <div>
         <p className="mb-4 text-sm">
-          Введіть вашу електронну адресу для відновлення паролю
+          Enter your email address to recover your password
         </p>
       </div>
       <div className="space-y-2">
@@ -355,13 +355,13 @@ export const AuthForm = () => {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Введіть ваш email"
+          placeholder="Enter your email"
           disabled={isSubmitting}
         />
       </div>
 
       <Button type="submit" className="w-full" disabled={isSubmitting}>
-        {isSubmitting ? "Завантаження..." : "Надіслати код"}
+        {isSubmitting ? "Loading..." : "Send Code"}
       </Button>
 
       <div className="flex justify-center pt-2 text-sm">
@@ -371,7 +371,7 @@ export const AuthForm = () => {
           onClick={() => setAuthStep(AuthStep.SignIn)}
           className="h-auto p-0"
         >
-          Повернутися до входу
+          Back to login
         </Button>
       </div>
     </form>
@@ -381,7 +381,7 @@ export const AuthForm = () => {
     <form onSubmit={handleResetPassword} className="space-y-4">
       <div>
         <p className="mb-4 text-sm">
-          Введіть код підтвердження та новий пароль
+          Enter confirmation code and new password
         </p>
       </div>
       <div className="space-y-2">
@@ -390,31 +390,31 @@ export const AuthForm = () => {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="confirmationCode">Код підтвердження</Label>
+        <Label htmlFor="confirmationCode">Confirmation Code</Label>
         <Input
           id="confirmationCode"
           type="text"
           value={confirmationCode}
           onChange={(e) => setConfirmationCode(e.target.value)}
-          placeholder="Введіть код підтвердження"
+          placeholder="Enter confirmation code"
           disabled={isSubmitting}
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="newPassword">Новий пароль</Label>
+        <Label htmlFor="newPassword">New Password</Label>
         <Input
           id="newPassword"
           type="password"
           value={newPassword}
           onChange={(e) => setNewPassword(e.target.value)}
-          placeholder="Введіть новий пароль"
+          placeholder="Enter new password"
           disabled={isSubmitting}
         />
       </div>
 
       <Button type="submit" className="w-full" disabled={isSubmitting}>
-        {isSubmitting ? "Завантаження..." : "Скинути пароль"}
+        {isSubmitting ? "Loading..." : "Reset Password"}
       </Button>
 
       <div className="flex justify-center pt-2 text-sm">
@@ -424,7 +424,7 @@ export const AuthForm = () => {
           onClick={() => setAuthStep(AuthStep.SignIn)}
           className="h-auto p-0"
         >
-          Повернутися до входу
+          Back to login
         </Button>
       </div>
     </form>
@@ -449,16 +449,16 @@ export const AuthForm = () => {
   const getCardTitle = () => {
     switch (authStep) {
       case AuthStep.SignUp:
-        return "Реєстрація";
+        return "Registration";
       case AuthStep.ConfirmSignUp:
-        return "Підтвердження реєстрації";
+        return "Confirm Registration";
       case AuthStep.ForgotPassword:
-        return "Забули пароль";
+        return "Forgot Password";
       case AuthStep.ResetPassword:
-        return "Скидання паролю";
+        return "Reset Password";
       case AuthStep.SignIn:
       default:
-        return "Вхід";
+        return "Login";
     }
   };
 
@@ -479,7 +479,7 @@ export const AuthForm = () => {
         {renderFormByStep()}
       </CardContent>
       <CardFooter className="text-muted-foreground text-center text-sm">
-        © 2025 FastFood Mobile Eats. Всі права захищені.
+        © 2025 FastFood Mobile Eats. All rights reserved.
       </CardFooter>
     </Card>
   );

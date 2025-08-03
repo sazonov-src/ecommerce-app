@@ -36,7 +36,7 @@ const MenuItems = ({ menuItems, categories }: Props) => {
             setSelectedCategoryId(undefined);
           }}
         >
-          Рекомендовані
+          Recommended
         </Button>
         {categories
           .filter((category) => category !== null)
@@ -57,10 +57,10 @@ const MenuItems = ({ menuItems, categories }: Props) => {
       </div>
       {/* Контент секції */}
       <Section
-        headerTitle="Рекомендовані"
+        headerTitle="Recommended"
         headerContent={
           <Button variant="ghost" size="sm">
-            Переглянути все
+            View All
           </Button>
         }
       >

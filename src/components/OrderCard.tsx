@@ -24,11 +24,11 @@ const statusColors = {
 };
 
 const statusLabels = {
-  pending: "Очікує",
-  preparing: "Готується",
-  ready: "Готово",
-  completed: "Виконано",
-  cancelled: "Скасовано",
+  pending: "Pending",
+  preparing: "Preparing",
+  ready: "Ready",
+  completed: "Completed",
+  cancelled: "Cancelled",
 };
 
 export function OrderCard({ order, onStatusChange }: OrderCardProps) {
@@ -36,7 +36,7 @@ export function OrderCard({ order, onStatusChange }: OrderCardProps) {
     <Card className="w-full">
       <CardHeader>
         <div className="flex items-center justify-between">
-          <CardTitle>Замовлення #{order.id}</CardTitle>
+          <CardTitle>Order #{order.id}</CardTitle>
           <Badge className={statusColors[order.status]}>
             {statusLabels[order.status]}
           </Badge>
@@ -59,7 +59,7 @@ export function OrderCard({ order, onStatusChange }: OrderCardProps) {
             ))}
           </div>
           <div className="flex justify-between border-t pt-2 font-medium">
-            <span>Всього:</span>
+            <span>Total:</span>
             <span>{order.totalAmount}₴</span>
           </div>
         </div>
@@ -70,7 +70,7 @@ export function OrderCard({ order, onStatusChange }: OrderCardProps) {
             onClick={() => onStatusChange(order.id, "preparing")}
             className="flex-1"
           >
-            Прийняти замовлення
+            Accept Order
           </Button>
         )}
         {order.status === "preparing" && (
@@ -78,7 +78,7 @@ export function OrderCard({ order, onStatusChange }: OrderCardProps) {
             onClick={() => onStatusChange(order.id, "ready")}
             className="flex-1"
           >
-            Позначити як готово
+            Mark as Ready
           </Button>
         )}
         {order.status === "ready" && (
@@ -86,7 +86,7 @@ export function OrderCard({ order, onStatusChange }: OrderCardProps) {
             onClick={() => onStatusChange(order.id, "completed")}
             className="flex-1"
           >
-            Позначити як виконано
+            Mark as Completed
           </Button>
         )}
         {["pending", "preparing"].includes(order.status) && (
@@ -95,7 +95,7 @@ export function OrderCard({ order, onStatusChange }: OrderCardProps) {
             variant="destructive"
             className="flex-1"
           >
-            Скасувати
+            Cancel
           </Button>
         )}
       </CardFooter>

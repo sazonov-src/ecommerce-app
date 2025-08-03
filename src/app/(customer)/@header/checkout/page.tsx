@@ -10,7 +10,7 @@ const NavigateHeader = () => {
           <ArrowLeft className="h-5 w-5" />
         </Button>
       </Link>
-      <h1 className="text-xl font-bold">Оформлення замовлення</h1>
+      <h1 className="text-xl font-bold">Checkout</h1>
     </div>
   );
 };

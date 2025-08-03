@@ -109,7 +109,7 @@ const MenuItemMiniCard: React.FC<Props> = ({
                 className="h-8 rounded-xl px-3 text-xs font-semibold"
                 onClick={handleAddToCart}
               >
-                Додати
+                Add
               </Button>
             </div>
           </div>
