@@ -39,7 +39,7 @@ const MenuItems = ({ menuItems, categories }: Props) => {
           Recommended
         </Button>
         {categories
-          .filter((category) => category !== null)
+          .filter((category) => category && category.id && category.name)
           .map((category) => (
             <Button
               key={category.id}

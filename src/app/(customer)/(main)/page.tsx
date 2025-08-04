@@ -19,8 +19,6 @@ async function fetchMenuItems(contextSpec: AmplifyServer.ContextSpec) {
   return { menuItems, categories };
 }
 
-export const revalidate = 10;
-
 export default async function Page() {
   const getCachedUser = unstable_cache(
     async () => {
@@ -31,7 +29,6 @@ export default async function Page() {
       return data;
     },
     [],
-    { revalidate: 10 },
   );
 
   const data = await getCachedUser();

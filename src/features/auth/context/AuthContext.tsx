@@ -15,7 +15,6 @@ import {
   resetPassword,
   confirmSignUp,
   signUp,
-  signInWithRedirect,
 } from "aws-amplify/auth";
 import { Hub } from "aws-amplify/utils";
 import { type AuthContextType, AuthStep, type AuthUser } from "../types";
@@ -36,17 +35,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     // Підписуємось на події автентифікації через Hub
     const unsubscribe = Hub.listen("auth", ({ payload }) => {
       switch (payload.event) {
-        case "signInWithRedirect":
-          console.log("Успішна автентифікація через Google");
-          checkAuthState();
-          break;
         case "signedIn":
           console.log("Успішна автентифікація");
-          checkAuthState();
-          break;
-        case "signInWithRedirect_failure":
-          console.error("Помилка автентифікації через Google", payload.message);
-          setError(payload.message || "Помилка входу через Google");
           checkAuthState();
           break;
         case "signedOut":
@@ -118,15 +108,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const handleSignInWithGoogle = async () => {
-    try {
-      await signInWithRedirect({ provider: "Google" });
-      // Перевірка стану авторизації буде виконана через Hub listener
-    } catch (err: any) {
-      setIsLoading(false);
-      setError(err.message || "Помилка входу через Google");
-    }
-  };
 
   const handleSignOut = async () => {
     try {
@@ -221,7 +202,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         authStep,
         signIn: handleSignIn,
         signOut: handleSignOut,
-        signInWithGoogle: handleSignInWithGoogle,
         register: handleRegister,
         confirmRegistration: handleConfirmRegistration,
         forgotPassword: handleForgotPassword,
