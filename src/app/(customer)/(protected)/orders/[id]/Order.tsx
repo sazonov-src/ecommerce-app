@@ -8,6 +8,7 @@ import { useActiveOrders } from "@/features/Orders/useActiveOrders";
 import { Separator } from "@/components/ui/separator";
 import OrderItems from "./OrderItems";
 import { Skeleton } from "@/components/ui/skeleton";
+import { formatPriceWithCurrency } from "@/lib/utils";
 
 export default function Order({ id }: { id: string }) {
   const { orders } = useActiveOrders();
@@ -40,7 +41,7 @@ export default function Order({ id }: { id: string }) {
             <Separator className="my-3" />
             <div className="flex justify-between text-lg font-bold">
               <span>Total</span>
-              <span>{order.totalPrice} ₴</span>
+              <span>{formatPriceWithCurrency(order.totalPrice)}</span>
             </div>
           </div>
         ) : (

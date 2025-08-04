@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import Section from "./Section";
+import { formatPriceWithCurrency } from "@/lib/utils";
 
 const QuickActions = () => (
   <Section>
@@ -8,7 +9,7 @@ const QuickActions = () => (
         <div className="text-center">
           <div className="mb-2 text-2xl">🚚</div>
           <h4 className="mb-1 text-sm font-semibold">Free Delivery</h4>
-          <p className="text-xs text-blue-100">On orders over 300 ₴</p>
+          <p className="text-xs text-blue-100">On orders over {formatPriceWithCurrency(3000)}</p>
         </div>
       </Card>
       <Card className="rounded-2xl border-0 bg-linear-to-br from-green-500 to-green-600 p-4 text-white transition-all duration-300 hover:shadow-lg">

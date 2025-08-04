@@ -9,7 +9,7 @@ import { AuthWidget } from "@/features/auth/components/AuthWidget";
 const Header = () => {
   const { totalQuantity: cartCount } = useCartStore();
   return (
-    <div className="px-4 py-3">
+    <div className="px-4 py-3 shadow-sm">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-3">
           <Button variant="ghost" size="icon" className="md:hidden">

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { generateClient } from "aws-amplify/data";
 import type { Schema } from "@/../amplify/data/resource";
 import { Skeleton } from "@/components/ui/skeleton";
+import { formatPriceWithCurrency } from "@/lib/utils";
 
 const client = generateClient<Schema>();
 
@@ -59,7 +60,7 @@ const OrderItems = ({ orderId }: { orderId: string }) => {
             <span className="font-medium">{item.title}</span>
             <span className="ml-2 text-gray-500">x{item.quantity}</span>
           </div>
-          <span className="font-semibold">{item.totalPrice} ₴</span>
+          <span className="font-semibold">{formatPriceWithCurrency(item.totalPrice || 0)}</span>
         </div>
       ))}
     </div>

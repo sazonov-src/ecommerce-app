@@ -9,6 +9,7 @@ import {
 } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { format } from "date-fns";
+import { formatPriceWithCurrency } from "@/lib/utils";
 
 interface OrderCardProps {
   order: Order;
@@ -54,13 +55,13 @@ export function OrderCard({ order, onStatusChange }: OrderCardProps) {
                 <span>
                   {item.name} x{item.quantity}
                 </span>
-                <span>{item.price * item.quantity}₴</span>
+                <span>{formatPriceWithCurrency(item.price * item.quantity)}</span>
               </div>
             ))}
           </div>
           <div className="flex justify-between border-t pt-2 font-medium">
             <span>Total:</span>
-            <span>{order.totalAmount}₴</span>
+            <span>{formatPriceWithCurrency(order.totalAmount)}</span>
           </div>
         </div>
       </CardContent>

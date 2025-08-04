@@ -29,11 +29,11 @@ export const ProtectedRoute = ({
     return null;
   }
 
-  // Якщо передано admin і користувач є адміністратором, то показуємо admin контент
+  // If admin is passed and user is administrator, show admin content
   if (admin && isAdmin) {
     return <>{admin}</>;
   }
 
-  // В іншому випадку показуємо звичайний контент
+  // Otherwise show regular content
   return <>{children}</>;
 };

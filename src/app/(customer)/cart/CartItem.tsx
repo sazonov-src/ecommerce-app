@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Trash2, Plus, Minus } from "lucide-react";
 import type { CartItem } from "@/features/Checkout";
+import { formatPriceWithCurrency } from "@/lib/utils";
 
 interface Props {
   item: CartItem;
@@ -31,7 +32,7 @@ const CartItemComponent = ({ item, increase, decrease, remove }: Props) => (
               <Trash2 className="h-4 w-4" />
             </Button>
           </div>
-          <p className="mt-1 font-semibold text-orange-500">{item.price} ₴</p>
+          <p className="mt-1 font-semibold text-orange-500">{formatPriceWithCurrency(item.price)}</p>
           <div className="mt-2 flex items-center justify-between">
             <div className="flex items-center rounded-lg border border-gray-200">
               <Button
@@ -53,7 +54,7 @@ const CartItemComponent = ({ item, increase, decrease, remove }: Props) => (
                 <Plus className="h-3 w-3" />
               </Button>
             </div>
-            <span className="font-bold">{item.price * item.quantity} ₴</span>
+            <span className="font-bold">{formatPriceWithCurrency(item.price * item.quantity)}</span>
           </div>
         </div>
       </div>

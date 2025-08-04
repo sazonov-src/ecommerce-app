@@ -55,7 +55,7 @@ const MenuItems = ({ menuItems, categories }: Props) => {
             </Button>
           ))}
       </div>
-      {/* Контент секції */}
+      {/* Section content */}
       <Section
         headerTitle="Recommended"
         headerContent={

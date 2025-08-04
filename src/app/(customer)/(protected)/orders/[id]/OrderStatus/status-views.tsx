@@ -1,4 +1,4 @@
-import { Clock, CheckCircle, Package, Utensils } from "lucide-react";
+import { Clock, CheckCircle, Package, ChefHat, Truck, HandPlatter } from "lucide-react";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { BaseLayout } from "./BaseLayout";
 
@@ -15,7 +15,6 @@ export const PendingStatusUI = ({ orderId }: { orderId: string }) => (
     icon={Clock}
     label="New Order"
     description="Awaiting processing"
-    color="bg-amber-500"
     iconColor="text-amber-600"
     badgeVariant="secondary"
     orderId={orderId}
@@ -31,10 +30,9 @@ export const PreparingStatusUI = ({
   timeRemaining?: number;
 }) => (
   <BaseLayout
-    icon={Utensils}
+    icon={ChefHat}
     label="Preparing"
     description="Order is being prepared in the kitchen"
-    color="bg-blue-500"
     iconColor="text-blue-600"
     badgeVariant="default"
     orderId={orderId}
@@ -58,10 +56,9 @@ export const PreparingStatusUI = ({
 
 export const ReadyStatusUI = ({ orderId }: { orderId: string }) => (
   <BaseLayout
-    icon={Package}
+    icon={HandPlatter}
     label="Ready"
     description="Order is ready for pickup"
-    color="bg-green-500"
     iconColor="text-green-600"
     badgeVariant="default"
     orderId={orderId}
@@ -81,10 +78,9 @@ export const ReadyStatusUI = ({ orderId }: { orderId: string }) => (
 
 export const CompletedStatusUI = ({ orderId }: { orderId: string }) => (
   <BaseLayout
-    icon={CheckCircle}
+    icon={Truck}
     label="Completed"
-    description="Order received"
-    color="bg-green-600"
+    description="Order delivered"
     iconColor="text-green-600"
     badgeVariant="default"
     orderId={orderId}

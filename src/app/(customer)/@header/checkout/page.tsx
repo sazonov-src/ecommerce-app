@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const NavigateHeader = () => {
   return (
-    <div className="flex items-center gap-2 px-4 py-4">
+    <div className="flex items-center gap-2 px-4 py-4 shadow-sm">
       <Link href="/">
         <Button variant="ghost" size="icon">
           <ArrowLeft className="h-5 w-5" />

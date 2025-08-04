@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Heart, Star, Clock } from "lucide-react";
 import { useCartStore } from "@/features/Checkout";
+import { formatPriceWithCurrency } from "@/lib/utils";
 
 interface Props {
   id: string;
@@ -97,10 +98,10 @@ const MenuItemMiniCard: React.FC<Props> = ({
 
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
-                <span className="font-bold text-orange-500">{price} ₴</span>
+                <span className="font-bold text-orange-500">{formatPriceWithCurrency(price)}</span>
                 {originalPrice && (
                   <span className="text-xs text-gray-400 line-through">
-                    {originalPrice} ₴
+                    {formatPriceWithCurrency(originalPrice)}
                   </span>
                 )}
               </div>

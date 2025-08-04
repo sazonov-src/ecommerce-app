@@ -5,28 +5,28 @@ export type OrderStatusType = "pending" | "preparing" | "ready" | "completed";
 
 export const useOrderStatus = () => {
   const [orderStatus, setOrderStatus] = useState<OrderStatusType>("pending");
-  const [timeRemaining, setTimeRemaining] = useState<number>(15 * 60); // 15 хв у секундах
+  const [timeRemaining, setTimeRemaining] = useState<number>(15 * 60); // 15 min in seconds
 
-  // Емуляція зміни статусу
+  // Status change emulation
   useEffect(() => {
     const prepareTimer = setTimeout(() => {
       setOrderStatus("preparing");
-      toast("Замовлення готується!", {
-        description: "Шеф-кухар почав готувати ваше замовлення.",
+      toast("Order is being prepared!", {
+        description: "The chef has started preparing your order.",
       });
     }, 5000);
 
     const readyTimer = setTimeout(() => {
       setOrderStatus("ready");
-      toast("Замовлення готове!", {
-        description: "Ваше замовлення готове до видачі.",
+      toast("Order is ready!", {
+        description: "Your order is ready for pickup.",
       });
     }, 20000);
 
     const completedTimer = setTimeout(() => {
       setOrderStatus("completed");
-      toast("Замовлення завершено!", {
-        description: "Дякуємо за ваше замовлення!",
+      toast("Order completed!", {
+        description: "Thank you for your order!",
       });
     }, 35000);
 
@@ -37,7 +37,7 @@ export const useOrderStatus = () => {
     };
   }, [toast]);
 
-  // Зворотний відлік
+  // Countdown
   useEffect(() => {
     if (orderStatus === "preparing") {
       const interval = setInterval(() => {

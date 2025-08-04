@@ -32,11 +32,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     checkAuthState();
-    // Підписуємось на події автентифікації через Hub
+    // Subscribe to authentication events via Hub
     const unsubscribe = Hub.listen("auth", ({ payload }) => {
       switch (payload.event) {
         case "signedIn":
-          console.log("Успішна автентифікація");
+          console.log("Successful authentication");
           checkAuthState();
           break;
         case "signedOut":
@@ -44,14 +44,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           setTimeout(() => {
             checkAuthState();
           }, 2000);
-          console.log("Вихід з системи");
+          console.log("Logged out");
           break;
         case "tokenRefresh":
-          console.log("Оновлення токена");
+          console.log("Token refresh");
           checkAuthState();
           break;
         case "tokenRefresh_failure":
-          console.error("Помилка оновлення токена");
+          console.error("Token refresh error");
           setUser(null);
           setIsAuthenticated(false);
           setIsAdmin(false);
@@ -69,12 +69,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     try {
       setIsLoading(true);
       const currentUser = await getCurrentUser();
-      console.log("Поточний користувач:", currentUser);
+      console.log("Current user:", currentUser);
       setUser(currentUser);
       console.log("SetUser:", user);
       setIsAuthenticated(true);
       const session = await fetchAuthSession();
-      console.log("Поточна сесія:", session);
+      console.log("Current session:", session);
       const groups =
         (session.tokens?.accessToken.payload["cognito:groups"] as string[]) ||
         [];
@@ -103,7 +103,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       return result;
     } catch (err: any) {
       setIsLoading(false);
-      setError(err.message || "Помилка входу в систему");
+      setError(err.message || "Login error");
       throw err;
     }
   };
@@ -114,7 +114,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       await signOut();
     } catch (err: any) {
       setIsLoading(false);
-      setError(err.message || "Помилка виходу з системи");
+      setError(err.message || "Logout error");
     }
   };
 
@@ -136,7 +136,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       return result;
     } catch (err: any) {
       setIsLoading(false);
-      setError(err.message || "Помилка реєстрації");
+      setError(err.message || "Registration error");
       throw err;
     }
   };
@@ -152,7 +152,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       return result;
     } catch (err: any) {
       setIsLoading(false);
-      setError(err.message || "Помилка підтвердження реєстрації");
+      setError(err.message || "Registration confirmation error");
       throw err;
     }
   };
@@ -166,7 +166,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       return result;
     } catch (err: any) {
       setIsLoading(false);
-      setError(err.message || "Помилка відновлення паролю");
+      setError(err.message || "Password recovery error");
       throw err;
     }
   };
@@ -187,7 +187,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       return result;
     } catch (err: any) {
       setIsLoading(false);
-      setError(err.message || "Помилка підтвердження нового паролю");
+      setError(err.message || "New password confirmation error");
       throw err;
     }
   };

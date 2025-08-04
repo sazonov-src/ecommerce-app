@@ -8,7 +8,7 @@ const NavigateHeader = () => {
   const router = useRouter()
 
   return (
-    <div className="flex items-center gap-2 px-4 py-4">
+    <div className="flex items-center gap-2 px-4 py-4 shadow-sm">
       <Button variant="ghost" size="icon" onClick={() => router.back()}>
         <ArrowLeft className="h-5 w-5" />
       </Button>

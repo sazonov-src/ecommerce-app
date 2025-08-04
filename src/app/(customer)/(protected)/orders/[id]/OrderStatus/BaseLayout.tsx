@@ -8,7 +8,6 @@ interface Props {
   icon: LucideIcon;
   label: string;
   description: string;
-  color: string;
   iconColor: string;
   badgeVariant: "default" | "secondary";
   orderId: string;
@@ -20,7 +19,6 @@ export const BaseLayout = ({
   icon: Icon,
   label,
   description,
-  color,
   iconColor,
   badgeVariant,
   orderId,
@@ -31,7 +29,7 @@ export const BaseLayout = ({
     {/* Header */}
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-3">
-        <div className={`rounded-full p-3 ${color} bg-opacity-20`}>
+        <div className={`rounded-full p-3 bg-opacity-20`}>
           <Icon className={`h-6 w-6 ${iconColor}`} />
         </div>
         <div>

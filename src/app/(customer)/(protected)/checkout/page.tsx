@@ -9,6 +9,7 @@ import { useCartStore } from "@/features/Checkout";
 import useCheckout from "@/features/Checkout/useCheckout";
 import { toast } from "sonner";
 import { Skeleton } from "@/components/ui/skeleton";
+import { formatPriceWithCurrency } from "@/lib/utils";
 
 const Checkout = () => {
   const router = useRouter();
@@ -114,18 +115,18 @@ const Checkout = () => {
                 <span className="font-medium">{item.name}</span>
                 <span className="ml-2 text-gray-500">x{item.quantity}</span>
               </div>
-              <span>{item.price * item.quantity} ₴</span>
+              <span>{formatPriceWithCurrency(item.price * item.quantity)}</span>
             </div>
           ))}
           <Separator className="my-2" />
           <div className="flex justify-between">
             <span className="text-gray-600">Food Cost</span>
-            <span>{totalPrice} ₴</span>
+            <span>{formatPriceWithCurrency(totalPrice)}</span>
           </div>
           <Separator className="my-2" />
           <div className="flex justify-between font-bold">
             <span>Total to Pay</span>
-            <span>{totalPrice} ₴</span>
+            <span>{formatPriceWithCurrency(totalPrice)}</span>
           </div>
         </div>
       </LayoutCard>
@@ -187,7 +188,7 @@ const Checkout = () => {
               className="w-full bg-orange-500 hover:bg-orange-600"
               disabled={!selectedCard || loading}
             >
-              Pay {totalPrice} ₴
+              Pay {formatPriceWithCurrency(totalPrice)}
             </Button>
           </div>
         </form>

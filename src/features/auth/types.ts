@@ -1,9 +1,9 @@
 import { type AuthUser as AmplifyAuthUser } from "aws-amplify/auth";
 
-// Повторно експортуємо тип AuthUser з Amplify
+// Re-export AuthUser type from Amplify
 export type AuthUser = AmplifyAuthUser;
 
-// Кроки процесу аутентифікації
+// Authentication process steps
 export enum AuthStep {
   SignIn,
   SignUp,
@@ -12,7 +12,7 @@ export enum AuthStep {
   ResetPassword,
 }
 
-// Тип контексту аутентифікації
+// Authentication context type
 export interface AuthContextType {
   user: AuthUser | null;
   isAuthenticated: boolean;
