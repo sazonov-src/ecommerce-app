@@ -9,7 +9,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-38b2ac?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Zustand](https://img.shields.io/badge/Zustand-4a5568?style=for-the-badge&logoColor=white)](https://github.com/pmndrs/zustand)
 
-Modern e-commerce application with real-time cart, authentication, and admin panel.
+Modern e-commerce application with front-end shopping cart, authentication, and an autonomous checkout system
 
 ## Features
 
@@ -18,7 +18,6 @@ Modern e-commerce application with real-time cart, authentication, and admin pan
 - 📱 **Responsive design** for all devices
 - 🍽️ **Menu management** with categories
 - 📊 **Order tracking** with status updates
-- 👨‍💼 **Admin panel** for content management
 
 ## Getting Started
 
