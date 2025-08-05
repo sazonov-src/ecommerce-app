@@ -34,14 +34,6 @@ Modern e-commerce application with front-end shopping cart, authentication, and 
    ```bash
    pnpm install
    ```
-3. Initialize Amplify Gen 2:
-   ```bash
-   npm create amplify@latest
-   ```
-   Or for manual installation:
-   ```bash
-   npm add --save-dev @aws-amplify/backend@latest @aws-amplify/backend-cli@latest typescript
-   ```
 4. Start local development:
    ```bash
    npx ampx sandbox
