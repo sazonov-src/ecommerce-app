@@ -1,23 +1,24 @@
 # E-commerce App
 
-A modern e-commerce application built with Next.js 15 and AWS Amplify.
+![Demo](public/Create%20T3%20App.gif)
+
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-61dafb?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178c6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![AWS Amplify](https://img.shields.io/badge/AWS%20Amplify-ff9900?style=for-the-badge&logo=aws&logoColor=white)](https://aws.amazon.com/amplify/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-38b2ac?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Zustand](https://img.shields.io/badge/Zustand-4a5568?style=for-the-badge&logoColor=white)](https://github.com/pmndrs/zustand)
+
+Modern e-commerce application with real-time cart, authentication, and admin panel.
 
 ## Features
 
-- **Customer-facing**: Browse menu items, add to cart, checkout
-- **Admin panel**: Manage menu items, categories, and orders
-- **Authentication**: AWS Amplify Auth with user pools
-- **Real-time updates**: Shopping cart with persistence
-- **Responsive design**: Mobile-friendly interface
-
-## Tech Stack
-
-- **Frontend**: Next.js 15, React 19, TypeScript
-- **Backend**: AWS Amplify with custom data models
-- **State Management**: Zustand for cart state
-- **UI**: Radix UI components with Tailwind CSS v4
-- **Authentication**: AWS Amplify Auth
-- **Database**: AWS Amplify DataStore
+- 🛒 **Shopping cart** with persistent state
+- 🔐 **User authentication** via AWS Amplify
+- 📱 **Responsive design** for all devices
+- 🍽️ **Menu management** with categories
+- 📊 **Order tracking** with status updates
+- 👨‍💼 **Admin panel** for content management
 
 ## Getting Started
 
